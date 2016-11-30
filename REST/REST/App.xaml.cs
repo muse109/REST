@@ -16,9 +16,15 @@ namespace REST
             MainPage = new REST.MainPage();
         }
 
-        protected override void OnStart()
+        protected override async void OnStart()
         {
             // Handle when your app starts
+
+            var client = new RestClient();
+
+            var json = client.Serialize();
+
+           await MainPage.DisplayAlert("JSON:", json, "cancel");
         }
 
         protected override void OnSleep()
