@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace REST
 {
-    class Country
+   public class Country
     {
         public string Name { get; set; }
+        public string Region { get; set; }
+
     }
 }

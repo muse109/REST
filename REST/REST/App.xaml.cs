@@ -9,22 +9,31 @@ namespace REST
 {
     public partial class App : Application
     {
+
+        private MainPage _mainPage;
         public App()
         {
+            _mainPage = new MainPage();
             InitializeComponent();
 
-            MainPage = new REST.MainPage();
+            MainPage = _mainPage;
         }
 
-        protected override async void OnStart()
+        //protected override async void OnStart()
+        //{
+        //    // Handle when your app starts
+
+        //    var client = new RestClient();
+
+        //    var json = client.Serialize();
+
+        //   await MainPage.DisplayAlert("JSON:", json, "cancel");
+        //}
+        protected override  void OnStart()
         {
             // Handle when your app starts
 
-            var client = new RestClient();
-
-            var json = client.Serialize();
-
-           await MainPage.DisplayAlert("JSON:", json, "cancel");
+            _mainPage.Load();
         }
 
         protected override void OnSleep()
